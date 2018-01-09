@@ -13,6 +13,8 @@
 		1ECA87871B7BE96F00D630E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA87861B7BE96F00D630E2 /* Images.xcassets */; };
 		1ECA878A1B7BE96F00D630E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ECA87881B7BE96F00D630E2 /* LaunchScreen.xib */; };
 		1ECA87961B7BE96F00D630E2 /* XMLParsingDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA87951B7BE96F00D630E2 /* XMLParsingDemoTests.swift */; };
+		1ECA87A01B7BE9FB00D630E2 /* TablaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECA879F1B7BE9FB00D630E2 /* TablaVC.swift */; };
+		1ECA87A41B7C1FF100D630E2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECA87A31B7C1FF100D630E2 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		1ECA878F1B7BE96F00D630E2 /* XMLParsingDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XMLParsingDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECA87941B7BE96F00D630E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ECA87951B7BE96F00D630E2 /* XMLParsingDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLParsingDemoTests.swift; sourceTree = "<group>"; };
+		1ECA879F1B7BE9FB00D630E2 /* TablaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablaVC.swift; sourceTree = "<group>"; };
+		1ECA87A31B7C1FF100D630E2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ECA87A41B7C1FF100D630E2 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +82,8 @@
 		1ECA877C1B7BE96F00D630E2 /* XMLParsingDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1ECA87A31B7C1FF100D630E2 /* SwiftyJSON.framework */,
+				1ECA879F1B7BE9FB00D630E2 /* TablaVC.swift */,
 				1ECA877F1B7BE96F00D630E2 /* AppDelegate.swift */,
 				1ECA87811B7BE96F00D630E2 /* ViewController.swift */,
 				1ECA87831B7BE96F00D630E2 /* Main.storyboard */,
@@ -122,6 +129,7 @@
 				1ECA87761B7BE96F00D630E2 /* Sources */,
 				1ECA87771B7BE96F00D630E2 /* Frameworks */,
 				1ECA87781B7BE96F00D630E2 /* Resources */,
+				1ECA87A51B7C203B00D630E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -161,9 +169,11 @@
 				TargetAttributes = {
 					1ECA87791B7BE96F00D630E2 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0830;
 					};
 					1ECA878E1B7BE96F00D630E2 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0830;
 						TestTargetID = 1ECA87791B7BE96F00D630E2;
 					};
 				};
@@ -207,6 +217,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1ECA87A51B7C203B00D630E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1ECA87761B7BE96F00D630E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -214,6 +241,7 @@
 			files = (
 				1ECA87821B7BE96F00D630E2 /* ViewController.swift in Sources */,
 				1ECA87801B7BE96F00D630E2 /* AppDelegate.swift in Sources */,
+				1ECA87A01B7BE9FB00D630E2 /* TablaVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,9 +368,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XMLParsingDemo",
+				);
 				INFOPLIST_FILE = XMLParsingDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -350,9 +383,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XMLParsingDemo",
+				);
 				INFOPLIST_FILE = XMLParsingDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -371,6 +409,7 @@
 				INFOPLIST_FILE = XMLParsingDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XMLParsingDemo.app/XMLParsingDemo";
 			};
 			name = Debug;
@@ -386,6 +425,7 @@
 				INFOPLIST_FILE = XMLParsingDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XMLParsingDemo.app/XMLParsingDemo";
 			};
 			name = Release;
@@ -409,6 +449,7 @@
 				1ECA879B1B7BE96F00D630E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1ECA879C1B7BE96F00D630E2 /* Build configuration list for PBXNativeTarget "XMLParsingDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +458,7 @@
 				1ECA879E1B7BE96F00D630E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
